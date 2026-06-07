@@ -1,6 +1,6 @@
 {
   "exclude": ["./dist/**/*", "./node_modules/**/*"],
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "tests", "hooks", "jest.config.ts", "vitest.config.ts"],
   "compileOnSave": false,
   "compilerOptions": {
     "noEmit": false,
@@ -13,13 +13,13 @@
     "lib": ["DOM", "ES2020", "esnext"],
     "module": "ESNext",
     "noFallthroughCasesInSwitch": true,
-    "rootDir": "./src",
+    "rootDir": "./",
     "outDir": "./dist",
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "ESNext",
     "typeRoots": ["node_modules/@types"],
-    "types": ["node"],
+    "types": ["node", "mocha", "chai", "jest"],
     "strict": true
   }
 }

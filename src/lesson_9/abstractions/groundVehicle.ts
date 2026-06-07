@@ -19,7 +19,7 @@ export abstract class GroundVehicle extends AbstractVehicle {
             return;
         }
         if (!this.consumeFuel(0.5)) {
-            console.log(`  ${this.describe()} cannot start — no fuel.`);
+            console.log(`  ${this.describe()} cannot start - no fuel.`);
             return;
         }
         this.isRunning = true;
