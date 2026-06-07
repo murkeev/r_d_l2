@@ -29,4 +29,33 @@ export class Motorcycle extends GroundVehicle {
     getStatus(): string {
         return `[Motorcycle] ${this.describe()} | ${this.currentSpeed} km/h | fuel: ${this.getFuelLevel().toFixed(1)}L | engine: ${this.engineCC} cc`;
     }
+
+    brake(amount: number): number {
+        const newSpeed = Math.max(0, this.currentSpeed - amount);
+        this.currentSpeed = newSpeed;
+        console.log(`${this.describe()} braking -> ${newSpeed} km/h`);
+        return newSpeed;
+    }
+
+    isHighPerformance(): boolean {
+        return this.engineCC >= 600;
+    }
+
+    getMaxSpeed(): number {
+        return this.engineCC >= 600 ? 250 : 160;
+    }
+
+    getEngineCategory(): string {
+        if (this.engineCC >= 1000) return "sport";
+        if (this.engineCC >= 600) return "standard";
+        return "cruiser";
+    }
+
+    getSummary(): string {
+        return `Engine category: ${this.getEngineCategory()} | max speed: ${this.getMaxSpeed()}`;
+    }
+
+    getFullReport(): string {
+        return `${this.getStatus()} | ${this.getSummary()}`;
+    }
 }
